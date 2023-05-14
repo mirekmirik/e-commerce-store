@@ -1,0 +1,38 @@
+.product {
+    flex-grow: 1;
+    padding: 24px;
+  }
+
+  .error {
+    color: red;
+    text-align: center;
+  }
+  .success {
+    color: greenyellow;
+    text-align: center;
+
+  }
+
+  .feedback {
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  
+  .group {
+    width: 100%;
+    background: #212123;
+    border-radius: 8px;
+    border: 1px solid var(--violet-dark);
+    color: var(--light);
+    padding: 12px 24px;
+  }
+  
+  .group input {
+    width: 100%;
+  }
