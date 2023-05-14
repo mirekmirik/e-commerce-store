@@ -31,14 +31,14 @@ const UserSignUpForm = ({ onCloseModal, onChangeForm, isLoading, errorMessage })
         if (errorMessage) {
             dispatch(setErrorMessageReducer(null))
         }
-    }, [])
+    }, [dispatch])
 
 
     useEffect(() => {
         if (!errorMessage && currentUser) {
             onCloseModal()
         }
-    }, [errorMessage, currentUser])
+    }, [currentUser])
 
 
 

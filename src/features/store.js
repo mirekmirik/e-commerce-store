@@ -3,7 +3,16 @@ import categoriesSlice from "./categories/categoriesSlice"
 import productsSlice from "./products/productsSlice"
 import { apiSlice } from "./api/apiSlice"
 import userSlice from "./user/userSlice"
-import { persistStore, persistReducer } from 'redux-persist'
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 
@@ -33,23 +42,16 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
+    middleware: getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }).concat(apiSlice.middleware),
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
     devTools: true,
 });
 
 export const persistor = persistStore(store);
-
-
-// export const store = configureStore({
-//     reducer: {
-//         categories: categoriesSlice,
-//         products: productsSlice,
-//         user: userSlice,
-//         [apiSlice.reducerPath]: apiSlice.reducer
-//     },
-//     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
-//     devTools: true,
-// })
 
 
 

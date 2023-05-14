@@ -36,7 +36,7 @@ const CreateProduct = () => {
         dispatch(setErrorMessageReducer(null))
         setSuccess(null)
         setValues(defaultValues)
-    }, [])
+    }, [dispatch, currentUser])
 
 
 

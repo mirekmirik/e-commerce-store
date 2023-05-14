@@ -1,13 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-// import { getAllProductsByCategory } from '../../features/categories/categoriesSlice'
-import { useDispatch, useSelector } from 'react-redux'
-
 import styles from '../../styles/Category.module.css'
 import Spinner from '../Spinner/Spinner'
 import { useGetProductsQuery } from '../../features/api/apiSlice'
 import Products from '../Products/Products'
-import { throttle } from 'lodash'
 
 const Category = () => {
 

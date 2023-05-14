@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
-import styles from '../../../styles/UpdateProduct.module.css'
 import { ROUTES } from '../../../utils/routes'
-import Spinner from '../../Spinner/Spinner'
 import { getProduct, setErrorMessageReducer, updateProduct } from '../../../features/products/productsSlice'
 import { Link } from 'react-router-dom'
-import { useGetProductQuery } from '../../../features/api/apiSlice'
+import Spinner from '../../Spinner/Spinner'
+import styles from '../../../styles/UpdateProduct.module.css'
 
 const UpdateProduct = () => {
 
@@ -49,7 +48,7 @@ const UpdateProduct = () => {
         }
         dispatch(setErrorMessageReducer(null))
         setSuccess(null)
-    }, [])
+    }, [navigate, dispatch, currentUser])
 
 
 

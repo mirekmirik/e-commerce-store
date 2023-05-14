@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { BASE_URL } from "../../utils/constants"
 import { handleErrors, shuffle, throwError } from "../../utils/common"
-import { create } from "lodash"
 
 
 export const getProducts = createAsyncThunk('products/getProducts', async (_, thunkAPI) => {

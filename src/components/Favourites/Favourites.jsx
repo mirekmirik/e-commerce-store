@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { sumBy } from '../../utils/common'
 import { removeItemFromCart } from '../../features/user/userSlice'
 import { Link } from 'react-router-dom'
 import styles from '../../styles/Cart.module.css'
@@ -46,17 +45,6 @@ const Favourites = () => {
                             )
                         })}
                     </div>
-                    {/* 
-                    <div className={styles.actions}>
-                        <div className={styles.total}>
-                            TOTAL PRICE:{" "}
-                            <span>
-                                {sumBy(cart.map(({ quantity, price }) => quantity * price))}$
-                            </span>
-                        </div>
-
-                        <button className={styles.proceed}>Proceed to checkout</button>
-                    </div> */}
                 </>
 
             )

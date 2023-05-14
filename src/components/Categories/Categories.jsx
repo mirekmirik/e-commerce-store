@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { ThreeDots } from "react-loader-spinner"
 import styles from '../../styles/Categories.module.css'
 import Spinner from "../Spinner/Spinner"
 const Categories = ({ title, products = [], amount, isLoading }) => {

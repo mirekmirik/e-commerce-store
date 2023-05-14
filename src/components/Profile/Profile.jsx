@@ -12,7 +12,7 @@ const Profile = () => {
     const dispatch = useDispatch()
 
     const { pathname } = useLocation()
-    const { currentUser, isLoading } = useSelector(({ user }) => user)
+    const { currentUser, isLoading, errorMessage } = useSelector(({ user }) => user)
 
     const [values, setValues] = useState({
         name: "",
@@ -31,13 +31,23 @@ const Profile = () => {
             return;
         }
         setValues({ ...currentUser, password: "", oldPassword: "" })
-    }, [pathname, currentUser])
+    }, [pathname, currentUser, navigate])
 
 
-    const sendUpdateUser = (valuesToUpdate) => {
-        delete valuesToUpdate.oldPassword
-        dispatch(updateUser(valuesToUpdate))
-        setSuccess('User updated!')
+    const sendUpdateUser = async (valuesToUpdate) => {
+        try {
+
+            delete valuesToUpdate.oldPassword
+            const resultAction = await dispatch(updateUser(valuesToUpdate))
+            if (updateUser.fulfilled.match(resultAction)) {
+                console.log(updateUser.fulfilled.match(resultAction))
+                setSuccess('User updated!')
+            } else {
+                setError(errorMessage)
+            }
+        } catch(err) {
+            console.log(err)
+        }
     }
 
 
@@ -78,6 +88,7 @@ const Profile = () => {
                     </Link>
 
                     {isLoading && <Spinner />}
+                    {/* {errorMessage && !isLoading && <span className={styles.error}>{errorMessage}</span>} */}
                     {error && !isLoading && <span className={styles.error}>{error}</span>}
                     {success && !isLoading && <span className={styles.success}>{success}</span>}
                     Write your new Email

@@ -146,7 +146,7 @@ const userSlice = createSlice({
             }
         },
         addItemToFavourites: (state, { payload }) => {
-            const found = state.favourites.findIndex(({ id }) => id === payload.id)
+            const found = state.favourites.findIndex(({ id }) => id == payload.id)
             if (found >= 0) {
                 state.favourites.splice(found, 1)
             } else {

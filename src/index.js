@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 import './styles/index.css'
 import App from './components/App/App';
 import { PersistGate } from 'redux-persist/integration/react';
-import Spinner from './components/Spinner/Spinner';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

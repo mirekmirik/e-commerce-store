@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router"
-import { useGetProductQuery } from "../../features/api/apiSlice"
-import { ROUTES } from "../../utils/routes"
+import React, { useEffect } from "react"
+import { useParams } from "react-router"
 import Product from "./Product"
 import { useDispatch, useSelector } from "react-redux"
 import { getProduct, getRelatedProducts } from "../../features/products/productsSlice"
@@ -41,10 +39,3 @@ const SingleProduct = () => {
 }
 
 export default SingleProduct
-
-
-  // useEffect(() => {
-    //     if (!isFetching && !isLoading && !isSuccess) {
-    //         navigate(ROUTES.HOME)
-    //     }
-    // }, [isFetching, isLoading, isSuccess, navigate])

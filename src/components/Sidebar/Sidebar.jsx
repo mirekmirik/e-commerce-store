@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from '../../styles/Sidebar.module.css'
@@ -7,7 +7,6 @@ import Spinner from "../Spinner/Spinner";
 
 const Sidebar = ({ amount }) => {
 
-    // const {list} = useSelector(({categories}) => categories)
     const { list, isLoading } = useSelector(({ categories }) => categories)
     const filterList = list.filter((_, i) => i < amount);
 

@@ -19,13 +19,13 @@ const UserLoginForm = ({ onCloseModal, onChangeForm, isLoading, errorMessage }) 
         if (errorMessage) {
             dispatch(setErrorMessageReducer(null))
         }
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         if (!errorMessage && currentUser) {
             onCloseModal()
         }
-    }, [currentUser, errorMessage])
+    }, [currentUser])
 
 
     const handleSubmit = (event) => {
@@ -39,8 +39,6 @@ const UserLoginForm = ({ onCloseModal, onChangeForm, isLoading, errorMessage }) 
 
     
     const refactorErrorMessage = errorMessage === 'Unauthorized' ? 'Email or password does not correct!' : errorMessage
-
-
 
 
 
